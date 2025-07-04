@@ -1,0 +1,40 @@
+.container-color-palette {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+
+.title-palette {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.palette-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.color-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  outline: none;
+}
+
+.color-button:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}

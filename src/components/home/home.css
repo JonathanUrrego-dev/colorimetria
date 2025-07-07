@@ -1,33 +1,38 @@
-.home {
-  max-width: 600px;
-  margin: auto;
-  padding: 2rem;
-  text-align: left;
+.diagonal-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #4438cad6;
   font-family: 'Segoe UI', sans-serif;
   animation: fadeIn 0.5s ease-in;
 }
-.home h1{
-  font-size: 2rem;
+
+h1{
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow:
+  0 2px 4px rgba(0, 0, 0, 0.596),
+  0 0 10px rgba(108, 99, 255, 0.3);
+}
+
+.container-text {
+  font-size: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
-}
-
-.home ul{
-  list-style: none;
-  padding: 0;
-  margin-top: 1rem;
-}
-
-.home ul li {
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
+  color: white;
+  font-weight: 500;
+  text-shadow:   
+  0 2px 4px rgba(0, 0, 0, 0.596),
+  0 0 10px rgba(108, 99, 255, 0.3);
 }
 
 .start-button {
   margin-top: 2rem;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  background-color: #4f46e5;
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  background-color: #08ac68;
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -36,17 +41,170 @@
   margin-left: auto;
   margin-right: auto;
   transition: background-color 0.2s ease;
+  font-weight: 600;
+  text-shadow:
+  0 2px 4px rgba(0, 0, 0, 0.596),
+  0 0 10px rgba(108, 99, 255, 0.3);
 }
 
 .start-button:hover {
-  background-color: #4338ca;
+  background-color: #28ee9b;
 }
 
 .fade-in {
   animation: fadeIn 0.5s ease-in forwards;
 }
 
+.left-panel {
+  flex: 1;
+  clip-path: polygon( 0% 0%, 100% -100%, 100% 100%, 0% 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding-left: 15px;
+}
+
+.right-panel {
+  flex: 2;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon( 15% 0, 100% 0, 100% 100%, 0 100%);
+  
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
+  from { opacity: 0; transform: scale(0.99); }
   to { opacity: 1; transform: scale(1); }
 }
+
+@media (max-width: 1024px) {
+  .diagonal-container {
+    height: 100vh;
+    display: flex;
+  }
+
+  .image {
+    width: auto;
+    height: 100%;
+  }
+
+  .left-panel {
+    padding: 3rem 2rem;
+    align-items: center;
+    text-align: center;
+    background-color: #08ac6800;
+  }
+
+  .left-panel h1 {
+    font-size: 2.5rem;
+  }
+
+  .left-panel p {
+    font-size: 1.1rem;
+    max-width: 90%;
+  }
+
+  .start-button {
+    font-size: 1.1rem;
+    padding: 0.85rem 1.5rem;
+  }
+
+  .right-panel {
+    height: 100vh;
+    filter: brightness(0.9);
+    clip-path:none;
+    flex: 1;
+  }
+
+  .container-text {
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    text-shadow:   
+    0 2px 4px rgba(0, 0, 0, 0.596),
+    0 0 10px rgba(108, 99, 255, 0.3);
+  }
+}
+
+@media (max-width: 767px) {
+  .diagonal-container {
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background: url('/background-colorimetria.webp') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .diagonal-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.059);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+  }
+
+  .left-panel {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: rgba(16, 16, 16, 0.201);
+    backdrop-filter: blur(1px);
+    border-radius: 1rem;
+    width: 90%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .left-panel h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .container-text {
+    font-size: 1rem;
+    color: #f5f5f5;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.494);
+  }
+
+  .start-button {
+    width: 100%;
+    font-size: 1.1rem;
+    padding:  1.2rem;
+    background-color: #5a52f9;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+  }
+
+  .start-button:hover {
+    background-color: #493fd1;
+  }
+
+  .image,
+  .right-panel {
+    display: none;
+  }
+}
+

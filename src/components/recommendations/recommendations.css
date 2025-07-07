@@ -1,0 +1,186 @@
+.background-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/background-colorimetria.webp');
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(125, 122, 122, 0.459);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+.container-recommendations {
+  position: relative;
+  z-index: 2;
+  font-family: 'Inter', sans-serif;
+  padding: 2.5rem;
+  max-width: 600px;
+  background: rgb(245, 243, 243);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  color: #333;
+}
+
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.container-recommendations h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #4A4A4A;
+}
+
+.container-recommendations ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.container-recommendations li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.container-recommendations li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #6c63ff;
+  font-weight: bold;
+}
+
+.container-recommendations strong {
+  font-weight: 600;
+  color: #111;
+}
+
+.container-recommendations p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.start-camera {
+  display: block;
+  width: 100%;
+  padding: 0.85rem;
+  background-color: #6c63ff;
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.start-camera:hover {
+  background-color: #584ed9;
+}
+
+@media (max-width: 709px) {
+    .container-recommendations {
+        position: relative;
+        z-index: 2;
+        font-family: 'Inter', sans-serif;
+        padding: 2.5rem;
+        max-width: 600px;
+        background: rgba(177, 177, 177, 0.924);
+        border-radius: 1.5rem;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        color: #333;
+        margin: 5px;
+    }
+
+
+    .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .fadeOut {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .container-recommendations h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: #0d0d0d;
+    }
+
+    .container-recommendations ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+        color: #111;
+
+    }
+
+    .container-recommendations li {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+        position: relative;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .container-recommendations li::before {
+        content: '✔';
+        position: absolute;
+        left: 0;
+        color: #3930ea;
+        font-weight: bold;
+    }
+
+    .container-recommendations strong {
+        font-weight: 600;
+        color: #111;
+    }
+
+    .container-recommendations p {
+        font-size: 0.90rem;
+        color: #1b1a1a;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .start-camera {
+        display: block;
+        width: 100%;
+        padding: 0.85rem;
+        background-color: #4038e3;
+        border: none;
+        color: white;
+        font-weight: 600;
+        border-radius: 0.75rem;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+}

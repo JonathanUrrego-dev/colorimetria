@@ -55,3 +55,16 @@
 .palette-button.selected {
   font-weight: bold;
 }
+
+.fade-in-palette {
+  opacity: 1;
+  animation: fadeOut 3s ease;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(100px);
+    pointer-events: none;
+  }
+}

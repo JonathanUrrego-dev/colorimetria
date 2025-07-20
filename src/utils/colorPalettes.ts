@@ -8,6 +8,11 @@ export const colorPalettes: ColorPalette[] = [
       { name: "Amarillo", hex: "#facc15" },
       { name: "Naranja", hex: "#f97316" },
       { name: "Rojo", hex: "#ef4444" },
+      { name: "Coral", hex: "#fb7185" },
+      { name: "Melocotón", hex: "#fda4af" },
+      { name: "Caramelo", hex: "#eab308" },
+      { name: "Terracota", hex: "#d97706" },
+      { name: "Rosa Intenso", hex: "#f43f5e" },
     ],
   },
   {
@@ -17,6 +22,11 @@ export const colorPalettes: ColorPalette[] = [
       { name: "Azul", hex: "#3b82f6" },
       { name: "Cian", hex: "#06b6d4" },
       { name: "Verde", hex: "#10b981" },
+      { name: "Turquesa", hex: "#2dd4bf" },
+      { name: "Verde Menta", hex: "#5eead4" },
+      { name: "Lavanda", hex: "#818cf8" },
+      { name: "Azul Noche", hex: "#1e3a8a" },
+      { name: "Verde Bosque", hex: "#065f46" },
     ],
   },
   {
@@ -76,4 +86,18 @@ export const colorPalettes: ColorPalette[] = [
       { name: "Azul marino", hex: "#0F4C81" },
     ],
   },
+  {
+    id: "earth",
+    label: "Colores Tierra",
+    colors: [
+      { name: "Marrón Tierra", hex: "#92400e" },
+      { name: "Arena", hex: "#ca8a04" },
+      { name: "Verde Oliva", hex: "#6b7280" },
+      { name: "Musgo", hex: "#4d7c0f" },
+      { name: "Arcilla", hex: "#78350f" },
+      { name: "Piedra", hex: "#64748b" },
+      { name: "Gris Pizarra", hex: "#334155" },
+      { name: "Tronco Oscuro", hex: "#43341b" },
+    ],
+  }
 ];

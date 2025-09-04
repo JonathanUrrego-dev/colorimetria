@@ -28,14 +28,17 @@ input[type = "checkbox"] {
 
 .bar span.top {
   top: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .bar span.middle {
   top: 17px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .bar span.bottom {
   bottom: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 input[type]:checked ~ span.top {
@@ -43,6 +46,8 @@ input[type]:checked ~ span.top {
   transform-origin: top left;
   width: 48px;
   left: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+
 }
 
 input[type]:checked ~ span.bottom {

@@ -41,15 +41,15 @@ export const ColorsContainer = () => {
       colorIndex.current = 0;
       autoTimer.current = setInterval(() => {
         setBgColor(activePalette.colors[colorIndex.current].hex);
-         if (colorIndex.current >= activePalette.colors.length - 1) {
-        if (autoTimer.current) clearInterval(autoTimer.current);
-        setIsAutoMode(false);
-      } else {
-        colorIndex.current++;
-      }
-    }, 3000); 
-  }
-};
+        if (colorIndex.current >= activePalette.colors.length - 1) {
+          if (autoTimer.current) clearInterval(autoTimer.current);
+          setIsAutoMode(false);
+        } else {
+          colorIndex.current++;
+        }
+      }, 5000);
+    }
+  };
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -86,11 +86,12 @@ export const ColorsContainer = () => {
 
   return (
     <div>
-      <BurgerButton
-        isOpen={isMenuOpen}
-        toggle={() => setIsMenuOpen(!isMenuOpen)}
-      />
-
+      <div className={`burger-wrapper ${isPaletteVisible ? "show" : "hide"}`}>
+        <BurgerButton
+          isOpen={isMenuOpen}
+          toggle={() => setIsMenuOpen(!isMenuOpen)}
+        />
+      </div>
       <div className={`sidebar ${isMenuOpen ? "open" : ""}`}>
         <h3>Paletas de color</h3>
         <div className="palette-buttons">
@@ -112,7 +113,7 @@ export const ColorsContainer = () => {
         className="container-colors"
         style={{ backgroundColor: bgColor }}
       >
-        {isPaletteVisible && (
+        {!isMenuOpen && isPaletteVisible && (
           <ColorPalette
             colors={activePalette.colors}
             onColorSelect={handleColorSelect}

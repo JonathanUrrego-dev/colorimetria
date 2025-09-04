@@ -9,10 +9,13 @@ export const ColorsContainer = () => {
   const [selectedPaletteId, setSelectedPaletteId] = useState("warm");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPaletteVisible, setIsPaletteVisible] = useState(true);
+  const [isAutoMode, setIsAutoMode] = useState(false);
 
   const activePalette = colorPalettes.find((p) => p.id === selectedPaletteId)!;
 
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const autoTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const colorIndex = useRef<number>(0);
 
   const startHideTimer = () => {
     if (hideTimer.current) clearTimeout(hideTimer.current);
@@ -24,8 +27,29 @@ export const ColorsContainer = () => {
   const handleColorSelect = (color: string) => {
     setBgColor(color);
     setIsPaletteVisible(true);
+    setIsAutoMode(false);
+    if (autoTimer.current) clearInterval(autoTimer.current);
     startHideTimer();
   };
+
+  const handleAutoChange = () => {
+    if (isAutoMode) {
+      setIsAutoMode(false);
+      if (autoTimer.current) clearInterval(autoTimer.current);
+    } else {
+      setIsAutoMode(true);
+      colorIndex.current = 0;
+      autoTimer.current = setInterval(() => {
+        setBgColor(activePalette.colors[colorIndex.current].hex);
+         if (colorIndex.current >= activePalette.colors.length - 1) {
+        if (autoTimer.current) clearInterval(autoTimer.current);
+        setIsAutoMode(false);
+      } else {
+        colorIndex.current++;
+      }
+    }, 3000); 
+  }
+};
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -47,6 +71,7 @@ export const ColorsContainer = () => {
 
     return () => {
       if (hideTimer.current) clearTimeout(hideTimer.current);
+      if (autoTimer.current) clearInterval(autoTimer.current);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       document.removeEventListener("click", handleGlobalClick);
     };
@@ -61,7 +86,10 @@ export const ColorsContainer = () => {
 
   return (
     <div>
-      <BurgerButton isOpen={isMenuOpen} toggle={() => setIsMenuOpen(!isMenuOpen)} />
+      <BurgerButton
+        isOpen={isMenuOpen}
+        toggle={() => setIsMenuOpen(!isMenuOpen)}
+      />
 
       <div className={`sidebar ${isMenuOpen ? "open" : ""}`}>
         <h3>Paletas de color</h3>
@@ -70,7 +98,9 @@ export const ColorsContainer = () => {
             <button
               key={palette.id}
               onClick={() => setSelectedPaletteId(palette.id)}
-              className={`palette-button ${selectedPaletteId === palette.id ? "selected" : ""}`}
+              className={`palette-button ${
+                selectedPaletteId === palette.id ? "selected" : ""
+              }`}
             >
               {palette.label}
             </button>
@@ -78,9 +108,16 @@ export const ColorsContainer = () => {
         </div>
       </div>
 
-      <div className="container-colors" style={{ backgroundColor: bgColor }}>
+      <div
+        className="container-colors"
+        style={{ backgroundColor: bgColor }}
+      >
         {isPaletteVisible && (
-          <ColorPalette colors={activePalette.colors} onColorSelect={handleColorSelect} />
+          <ColorPalette
+            colors={activePalette.colors}
+            onColorSelect={handleColorSelect}
+            onAutoChange={handleAutoChange}
+          />
         )}
       </div>
     </div>

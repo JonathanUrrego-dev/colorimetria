@@ -4,9 +4,10 @@ import "./colorPalette.css";
 interface ColorPaletteProps {
   colors: ColorItem[];
   onColorSelect: (color: string) => void;
+  onAutoChange?: () => void;
 }
 
-export const ColorPalette = ({ colors, onColorSelect }: ColorPaletteProps) => {
+export const ColorPalette = ({ colors, onColorSelect, onAutoChange }: ColorPaletteProps) => {
   const colorSelected = (hex: string) => {
     onColorSelect(hex);
   };
@@ -18,13 +19,19 @@ export const ColorPalette = ({ colors, onColorSelect }: ColorPaletteProps) => {
         {colors.map((color) => (
           <button
             key={color.name}
-            className={`color-button`}
+            className="color-button"
             aria-label={color.name}
             title={color.name}
             style={{ backgroundColor: color.hex }}
             onClick={() => colorSelected(color.hex)}
           ></button>
         ))}
+        <button 
+          className="auto-button" 
+          onClick={onAutoChange}
+        >
+          ⟳
+        </button>
       </div>
     </div>
   );

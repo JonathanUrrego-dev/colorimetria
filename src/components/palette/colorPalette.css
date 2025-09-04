@@ -3,18 +3,17 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem 0.5rem;
   background: rgba(0, 0, 0, 0.6);
   text-align: center;
   z-index: 1000;
   backdrop-filter: blur(8px);
 }
 
-
 .title-palette {
-  font-size: 2rem;
+  font-size: 1.25rem;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .palette-buttons {
@@ -22,6 +21,7 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
+  align-items: center;
 }
 
 .color-button {
@@ -37,4 +37,21 @@
 .color-button:hover {
   transform: scale(1.15);
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.auto-button {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.auto-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }

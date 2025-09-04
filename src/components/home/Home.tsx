@@ -17,7 +17,7 @@ export const Home = ({ nextContainerInfo }: { nextContainerInfo: () => void }) =
       </div>
       <div className="right-panel">
         <img
-          src="/public/background-colorimetria.webp"
+          src="/background-colorimetria.webp"
           alt="Colorimetría"
           className="image"
         />
